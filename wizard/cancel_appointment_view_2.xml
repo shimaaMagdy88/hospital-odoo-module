@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cancel_appointment_two_form" model="ir.ui.view">
+        <field name="name">cancel.appointment.wizard.two.form</field>
+        <field name="model">cancel.appointment.wizard.two</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="bg-light p-5">
+                        <group>
+                            <group>
+                                <field name="appointment_id" string="New Appointment" domain="[('state','!=','cancel')]"/>
+                                <field name="reason"/>
+                            </group>
+                            <group>
+                                <field name="cancel_date" invisible="context.get('hide_appoint')" />
+                            </group>
+                        </group>
+                    </div>
+                </sheet>
+                <footer>
+                    <button name="action_cancel_btn" type="object" string="Cancel Appointment" class="btn btn-primary"
+                            data-hotkey="x"/>
+                    <button class="btn btn-secondary" string="Discard"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cancel_appointment_two" model="ir.actions.act_window">
+        <field name="name">Cancel Appointment two</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cancel.appointment.wizard.two</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

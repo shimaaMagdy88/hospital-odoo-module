@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_patient" model="ir.actions.report">
+        <field name="name">Patient Details</field>
+        <field name="model">hospital.patient</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">om_hospital.report_patient_template</field>
+        <field name="report_file">om_hospital.report_patient_template</field>
+        <field name="binding_model_id" ref="model_hospital_patient"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_report_patient_xlsx" model="ir.actions.report">
+        <field name="name">Patient Details Excel</field>
+        <field name="model">hospital.patient</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">om_hospital.report_patient_template_xlsx</field>
+        <field name="report_file">om_hospital.report_patient_template_xlsx</field>
+        <field name="binding_model_id" ref="model_hospital_patient"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_sale_order_report" model="ir.actions.report">
+        <field name="name">Sales Orders Report PDF</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">om_hospital.report_orders_template</field>
+        <field name="report_file">om_hospital.report_orders_template</field>
+        <field name="binding_model_id" ref="model_hospital_patient"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

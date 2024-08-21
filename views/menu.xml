@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_hospital_root"
+              name="Hospital"
+              web_icon="om_hospital,static/description/icon.png"
+              sequence="0"/>
+
+    <menuitem id="menu_patient_master"
+              name="Patient Details"
+              sequence="0"
+              parent="menu_hospital_root"/>
+
+    <menuitem id="menu_appointment_master"
+              name="Appointment"
+              sequence="0"
+              parent="menu_hospital_root"/>
+
+    <menuitem id="menu_doctor_master"
+              name="Doctor"
+              sequence="0"
+              parent="menu_hospital_root"/>
+
+    <menuitem id="menu_configuration"
+              name="Configuration"
+              sequence="0"
+              parent="menu_hospital_root"
+              action="action_patient_tags"/>
+
+    <menuitem id="menu_cancel_appointment"
+          name="Cancellation"
+          sequence="20"
+          parent="menu_appointment_master"
+          action="action_cancel_appointment_two"/>
+
+    <menuitem id="create_appointment_menu_item"
+          name="Create Appointment"
+          sequence="40"
+          parent="menu_appointment_master"
+          action="action_create_appointment"/>
+
+    <!--    sale order menu item -->
+    <menuitem id="sale_order_duration_menu"
+              name="Print Report"
+              action="action_sale_order_duration"
+              parent="sale.sale_menu_root"/>
+
+</odoo>

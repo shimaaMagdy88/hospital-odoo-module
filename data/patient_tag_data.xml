@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="patient_tag_vip" model="hospital.patient.tag" forcecreate="0">
+            <field name="name">VIIP</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="patient_tag_adult" model="hospital.patient.tag">
+            <field name="name">Adultt</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="patient_tag_kid" model="hospital.patient.tag">
+            <field name="name">KIDD</field>
+            <field name="active" eval="True"/>
+        </record>
+
+    <!--    <record id="patient_tag_mr" model="hospital.doctor">-->
+    <!--        <field name="doctor_name">MR</field>-->
+    <!--    </record>-->
+    </data>
+
+</odoo>
+

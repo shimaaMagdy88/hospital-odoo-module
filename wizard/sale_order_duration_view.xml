@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_duration_form" model="ir.ui.view">
+        <field name="name">sale.order.duration.form</field>
+        <field name="model">sale.order.duration</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="p-5" style="background-color: lightgray; border: 1px solid gray; border-radius: 15px">
+                        <group>
+                            <group>
+                                <label string="Duration" for="start_date"/>
+                                <div class="oe_row">
+                                    <field name="start_date" widget="daterange" options="{'related_end_date': 'end_date'}" class="oe_inline"/>
+                                    <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
+                                    <field name="end_date" widget="daterange" options="{'related_start_date': 'start_date'}" class="oe_inline"/>
+                                </div>
+                            </group>
+                            <group>
+
+                            </group>
+                        </group>
+                    </div>
+                </sheet>
+                <footer>
+                    <button class="btn btn-primary" string="Print Orders PDF"
+                            type="action" name="%(om_hospital.action_sale_order_report)d"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sale_order_duration" model="ir.actions.act_window">
+        <field name="name">Sales Orders Duration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order.duration</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

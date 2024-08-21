@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_patient_template">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+
+                        <div class="oe_structure"/>
+                        <div class="row">
+
+                            <div class="col-xs-8">
+                                <table class="table table-condensed"
+                                   style="border:1px solid;margin:auto;width:80%;padding:10px" align="center">
+                                    <tr>
+                                        <td width="40%">
+                                            <p> kdfjkdjfkdk
+                                                <t t-if="not o.image"
+                                                   t-att-src="'/web/static/img/placeholder.png'"
+                                                   height="100" width="100"/>
+                                                <t t-if="o.image"
+                                                   t-att-src="'data:images/png;base64,%s' % to_text(o.image)"
+                                                   height="100" width="100"/>
+                                            </p>
+                                        </td>
+                                        <td width="60%">
+                                            <tr>
+                                                <td colspan="3" class="text-center">
+                                                    <h2 t-field="o.name"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                        <td>
+                                            <span>
+                                                <strong>Age</strong>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span>:</span>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.age"/>
+                                        </td>
+                                        </tr>
+                                            <tr>
+                                            <td>
+                                                Phone:
+                                            </td>
+                                            <td>
+                                                :
+                                            </td>
+                                            <td>
+                                                <span t-field="o.phone"/>
+                                            </td>
+                                        </tr>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <t t-if="o.appointment_ids">
+                                    <h3 class="text-center pt-5 mt-5 pb-3">Appointment Details</h3>
+                                    <table style="width:80%; margin:auto" name="appointment" class="table table-bordered text-center">
+                                        <thead style="background-color: gray">
+                                            <tr>
+                                                <th>
+                                                    <span>Patient Reference</span>
+                                                </th>
+                                                <th>
+                                                    <span>Doctor</span>
+                                                </th>
+                                                <th>
+                                                    <span>Booking Date</span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-set="count" t-value="0"/>
+                                            <t t-foreach="o.appointment_ids" t-as="line">
+                                                <t t-set="count" t-value="count + 1"/>
+                                                <tr>
+                                                    <td>
+                                                        <span t-field="line.ref"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="line.doctor"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="line.booking_date"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td colspan="2" calss="text-warning">
+                                                    <span>Total Appointments</span>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="count"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </t>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+    </template>
+</odoo>

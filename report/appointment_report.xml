@@ -1,0 +1,50 @@
+<odoo>
+    <record id="action_appointment_report" model="ir.actions.report">
+        <field name="name">Appointment Report</field>
+        <field name="model">hospital.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="binding_model_id" ref="model_hospital_appointment"/>
+        <field name="binding_type">report</field>
+        <field name="report_name">om_hospital.appointment_report_template</field>
+    </record>
+
+    <template id="appointment_report_template">
+<!--        <t t-call="web.html_container">-->
+            <t t-call="web.external_layout">
+                <style>
+                    table{
+                        width:100%;
+                        padding:8px 10px;
+                        margin:auto;
+                        text-align:center
+                    }
+                    table td, table th{
+                        padding:8px 10px;
+                    }
+                    table .key{
+                        background-color: #eee;
+                    }
+                </style>
+                <h1>Appointment Details</h1>
+                <table class="table-bordered">
+                    <thead>
+                        <tr style="background-color: cyan">
+                            <th>Patient Name</th>
+                            <th>Reference</th>
+                            <th>Appointment Date</th>
+                        </tr>
+                        <tbody>
+                            <t t-foreach="appointments" t-as="o">
+                                <tr>
+                                    <td><t t-esc="o['name']"/></td>
+                                    <td><t t-esc="o['ref']"/></td>
+                                    <td><t t-esc="o['appointment_date']"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </thead>
+                </table>
+            </t>
+<!--        </t>-->
+    </template>
+</odoo>
